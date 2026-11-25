@@ -1,0 +1,713 @@
+[
+  {
+    "objectID": "06_seance.html",
+    "href": "06_seance.html",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#bienvenue",
+    "href": "06_seance.html#bienvenue",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#conditions",
+    "href": "06_seance.html#conditions",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "1. Conditions",
+    "text": "1. Conditions\nUne condition if attend une seule valeur logique. ifelse() applique un choix à chaque élément d’un vecteur.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez le vecteur ph contenant 6.1, 7 et 8.2. Affichez un vecteur de chaînes « acide », « neutre » ou « basique » (en minuscules), selon le pH dans le modèle idéal à 25 °C.\n\n\n\n\n\n\n\n\n\nImbriquer deux ifelse().\n\n\nph &lt;- c(6.1,7,8.2)\nifelse(ph&lt;7,\"acide\",ifelse(ph&gt;7,\"basique\",\"neutre\"))\n\n\n\n\n\n\nVérifiez vos connaissances\nQuelle fonction traite un vecteur de conditions ?\n if()\n ifelse()\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#boucles",
+    "href": "06_seance.html#boucles",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "2. Boucles",
+    "text": "2. Boucles\nUne boucle for répète un bloc. Préallouer un vecteur de résultats évite de l’agrandir à chaque tour.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez le vecteur x contenant 20, 25 et 30 °C, et un vecteur numérique y de même longueur. Utilisez une boucle avec l’indice i pour remplir y avec les températures en kelvins. Affichez y, puis effectuez la conversion sans boucle en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser seq_along() et ajouter 273.15.\n\n\nx &lt;- c(20,25,30)\ny &lt;- numeric(length(x))\nfor(i in seq_along(x)) { y[i] &lt;- x[i]+273.15 }\ny\nx+273.15\n\n\n\n\n\n\nVérifiez vos connaissances\nPour un simple calcul vectoriel, une boucle est-elle indispensable ?\n Oui\n Non\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#fonctions-personnelles",
+    "href": "06_seance.html#fonctions-personnelles",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "3. Fonctions personnelles",
+    "text": "3. Fonctions personnelles\nUne fonction regroupe un calcul réutilisable. La dernière expression est renvoyée par défaut.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez une fonction nommée quantite avec deux arguments masse (g) et M (g/mol), qui renvoie la quantité de matière. Testez-la avec 5.844 g de NaCl de masse molaire 58.44 g/mol. Affichez ce résultat en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser function(masse,M) et masse/M.\n\n\nquantite &lt;- function(masse,M) { masse/M }\nquantite(5.844,58.44)\n\n\n\n\n\n\nVérifiez vos connaissances\nPourquoi créer une fonction ?\n Supprimer les données\n Réutiliser et clarifier un calcul\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#mini-projet-préparation",
+    "href": "06_seance.html#mini-projet-préparation",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "4. Mini-projet : préparation",
+    "text": "4. Mini-projet : préparation\nVous devez analyser un étalonnage simulé et estimer la concentration d’un échantillon inconnu. Documenter chaque étape.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nLe tableau d est déjà importé dans le code fourni. Affichez le nombre de valeurs manquantes, le nombre de lignes dupliquées exactement, puis les effectifs par lot en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser sum(is.na(d)), sum(duplicated(d)) et table().\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nsum(is.na(d))\nsum(duplicated(d))\ntable(d$lot)\n\n\n\n\n\n\nVérifiez vos connaissances\nUn doublon exact est :\n Une ligne identique à une autre\n Toute répétition expérimentale\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#mini-projet-modèle",
+    "href": "06_seance.html#mini-projet-modèle",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "5. Mini-projet : modèle",
+    "text": "5. Mini-projet : modèle\nConstruire une figure, ajuster le modèle global, examiner coefficients, R² et résidus.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, créez le modèle linéaire global m reliant absorbance à concentration. Tracez les points et la droite ajustée, affichez le résumé du modèle, puis tracez les résidus en fonction des valeurs ajustées avec une ligne horizontale à zéro.\n\n\n\n\n\n\n\n\n\nUtiliser lm(), abline(m), plot(fitted(m),residuals(m)).\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nm &lt;- lm(absorbance~concentration,data=d)\nplot(d$concentration,d$absorbance,pch=19,xlab=\"Concentration (mg/L)\",ylab=\"Absorbance\")\nabline(m,col=\"blue\")\nsummary(m)\nplot(fitted(m),residuals(m))\nabline(h=0,lty=2)\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nLa droite doit-elle être forcée à passer par zéro ?\n Seulement si scientifiquement justifié\n Toujours\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#mini-projet-résultat",
+    "href": "06_seance.html#mini-projet-résultat",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "6. Mini-projet : résultat",
+    "text": "6. Mini-projet : résultat\nTrois mesures de l’inconnue diluée cinq fois donnent 0.251, 0.248 et 0.255. Présenter le résultat et ses limites.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d et du modèle m fournis, estimez dans le vecteur x les concentrations correspondant aux absorbances 0.251, 0.248 et 0.255 de l’échantillon dilué cinq fois. Vérifiez que les valeurs de x sont dans le domaine 0–10 mg/L. Créez le vecteur initial des concentrations avant dilution, affichez sa moyenne puis son écart-type en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nInverser la droite, vérifier 0–10 mg/L puis multiplier par 5.\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nm &lt;- lm(absorbance~concentration,data=d)\nx &lt;- (c(.251,.248,.255)-coef(m)[1])/coef(m)[2]\nx &gt;= 0 & x &lt;= 10\ninitial &lt;- 5*x\nmean(initial)\nsd(initial)\n\n\n\n\n\n\nVérifiez vos connaissances\nL’écart-type des trois estimations représente :\n Toute l’incertitude du dosage\n La dispersion des répétitions, pas toute l’incertitude\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "06_seance.html#synthèse",
+    "href": "06_seance.html#synthèse",
+    "title": "Séance 6 — Programmer et mini-projet",
+    "section": "Synthèse",
+    "text": "Synthèse\nSans regarder les solutions, refaites le dernier exercice. Expliquez à votre voisin les fonctions utilisées, le sens des résultats et une erreur que vous avez corrigée. Notez deux notions à retenir et une question à poser.",
+    "crumbs": [
+      "Accueil",
+      "Séance 6 — Programmer et mini-projet"
+    ]
+  },
+  {
+    "objectID": "04_seance.html",
+    "href": "04_seance.html",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#bienvenue",
+    "href": "04_seance.html#bienvenue",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#ggplot2",
+    "href": "04_seance.html#ggplot2",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "1. ggplot2",
+    "text": "1. ggplot2\nggplot() définit les données et les correspondances esthétiques ; les couches géométriques sont ajoutées avec +.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez absorbance (y) en fonction de concentration (x), colorez les points selon lot et ajoutez une droite de régression globale noire, sans bande de confiance. Nommez les axes.\n\n\n\n\n\n\n\n\n\nUtilisez geom_point() puis geom_smooth(aes(group=1), method=“lm”, se=FALSE, color=“black”).\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(concentration = rep(c(1, 3, 5, 7, 9), 2),\n                absorbance = c(.09,.19,.30,.38,.49,.12,.22,.34,.43,.55),\n                lot = rep(c(\"A\", \"B\"), each = 5))\nggplot(d,aes(concentration,absorbance,color=lot))+geom_point()+geom_smooth(aes(group=1),method=\"lm\",formula=y~x,se=FALSE,color=\"black\")+labs(x=\"Concentration (mg/L)\",y=\"Absorbance\")+theme_minimal()\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nQuel symbole ajoute une couche ?\n &\n &lt;-\n +\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#construire-un-graphique-par-couches",
+    "href": "04_seance.html#construire-un-graphique-par-couches",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "2. Construire un graphique par couches",
+    "text": "2. Construire un graphique par couches\nLa fonction ggplot(data, aes(x = ..., y = ...)) associe les colonnes aux axes. Dans aes(), une couleur liée à une colonne crée une légende ; en dehors de aes(), elle est fixe. labs() définit les titres et theme_minimal() modifie le style.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez absorbance (y) en fonction de temps (x), avec des points bleus, sans légende, et le titre « Cinétique ».\n\n\n\n\n\n\n\n\n\nPlacez color=“blue” hors de aes().\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(temps = rep(seq(0,10,by=2), 2),\n                absorbance = c(.90,.66,.48,.32,.23,.16,.88,.79,.69,.59,.51,.43),\n                lot = rep(c(\"A\", \"B\"), each = 6))\nggplot(d,aes(temps,absorbance))+geom_point(color=\"blue\",size=3)+labs(title=\"Cinétique\",x=\"Temps (min)\",y=\"Absorbance\")+theme_minimal()\n\nValidation visuelle : comparez votre figure à la solution et expliquez les différences.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#associer-une-couleur-ou-une-forme-à-une-variable",
+    "href": "04_seance.html#associer-une-couleur-ou-une-forme-à-une-variable",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "Associer une couleur ou une forme à une variable",
+    "text": "Associer une couleur ou une forme à une variable\nDans aes() (aesthetics), on indique à ggplot2 quelle colonne du tableau contrôle une propriété graphique. Cette association crée automatiquement une légende.\n\nCouleur et forme des points\n\n\n\n\n\n\n\n\n\ncolor = lot : une couleur par lot.\nshape = lot : une forme par lot. La variable doit être qualitative (ou convertie en facteur avec factor()).\nOn peut associer deux variables différentes à la couleur et à la forme.\nEn dehors de aes(), par exemple geom_point(color = \"blue\", shape = 17), les propriétés sont identiques pour tous les points.\n\n\n\nDeux variables différentes et personnalisation des symboles\n\n\n\n\n\n\n\n\nLes codes 16 et 17 correspondent respectivement à un cercle plein et un triangle plein. scale_color_manual() et scale_shape_manual() permettent de choisir les couleurs et les formes associées aux modalités. Pour une variable numérique continue, color produit normalement un dégradé ; shape ne permet pas une échelle continue. Pour les boîtes et histogrammes, fill contrôle le remplissage et color le contour.\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez absorbance en fonction de concentration. Associez couleur et forme à lot (A bleu/cercle, B orange/triangle), puis réalisez une deuxième figure où seule la forme dépend de lot et où tous les points sont bleus.\n\n\n\n\n\n\n\n\n\nUtilisez aes(color=lot, shape=lot) et les échelles manuelles.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(concentration = rep(c(1, 3, 5, 7, 9), 2),\n                absorbance = c(.09,.19,.30,.38,.49,.12,.22,.34,.43,.55),\n                lot = rep(c(\"A\", \"B\"), each = 5))\nprint(ggplot(d,aes(concentration,absorbance))+geom_point(aes(color=lot,shape=lot),size=3)+scale_color_manual(values=c(A=\"blue\",B=\"orange\"))+scale_shape_manual(values=c(A=16,B=17))+labs(title=\"Dosage par lot\",color=\"Lot\",shape=\"Lot\")+theme_minimal())\nprint(ggplot(d,aes(concentration,absorbance))+geom_point(aes(shape=lot),color=\"blue\",size=3)+scale_shape_manual(values=c(A=16,B=17))+theme_minimal())\n\nValidation visuelle, hors barème.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#courbes-avec-geom_line",
+    "href": "04_seance.html#courbes-avec-geom_line",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "3. Courbes avec geom_line()",
+    "text": "3. Courbes avec geom_line()\ngeom_line() relie les points selon les abscisses. Pour des séries distinctes, utiliser color = lot ou group = lot dans aes(). On peut superposer points et lignes avec +. Ne pas relier des mesures indépendantes sans ordre physique.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez absorbance en fonction de temps pour les deux lots, en noir, avec un type de trait différent selon lot et les points. Quel lot décroît plus rapidement ?\n\n\n\n\n\n\n\n\n\nAssociez linetype à lot dans aes().\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(temps = rep(seq(0,10,by=2), 2),\n                absorbance = c(.90,.66,.48,.32,.23,.16,.88,.79,.69,.59,.51,.43),\n                lot = rep(c(\"A\", \"B\"), each = 6))\nggplot(d,aes(temps,absorbance,linetype=lot))+geom_line(linewidth=1,color=\"black\")+geom_point()+labs(x=\"Temps (min)\",y=\"Absorbance\")+theme_bw()\n\nValidation visuelle : comparez votre figure à la solution et expliquez les différences.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#histogrammes-avec-geom_histogram",
+    "href": "04_seance.html#histogrammes-avec-geom_histogram",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "4. Histogrammes avec geom_histogram()",
+    "text": "4. Histogrammes avec geom_histogram()\nUn histogramme regroupe les valeurs numériques en classes. Seul x est nécessaire : ggplot2 calcule les effectifs. bins fixe le nombre de classes et binwidth leur largeur. Un choix trop fin ou trop large peut masquer la distribution.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, créez un objet graphique p représentant la distribution de pH (sans couche histogramme pour le moment). Affichez deux histogrammes en ajoutant à p des largeurs de classes de 0.05 et 0.3.\n\n\n\n\n\n\n\n\n\nModifiez binwidth dans geom_histogram().\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(lot = rep(c(\"A\", \"B\"), each = 12),\n                pH = c(7.1,7.2,7.3,7.0,7.4,7.2,7.3,7.1,7.2,7.5,7.0,7.3,\n                       6.4,6.6,6.8,6.5,6.9,6.7,6.6,6.8,7.0,6.4,6.7,6.5))\np &lt;- ggplot(d,aes(pH))+labs(y=\"Effectif\")\nprint(p+geom_histogram(binwidth=.05))\nprint(p+geom_histogram(binwidth=.3))\n\nValidation visuelle : comparez votre figure à la solution et expliquez les différences.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#boîtes-à-moustaches-avec-geom_boxplot",
+    "href": "04_seance.html#boîtes-à-moustaches-avec-geom_boxplot",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "5. Boîtes à moustaches avec geom_boxplot()",
+    "text": "5. Boîtes à moustaches avec geom_boxplot()\nAssocier une variable qualitative à x et une variable quantitative à y. La boîte va du premier au troisième quartile ; le trait représente la médiane. Les moustaches atteignent les observations les plus éloignées dans la limite de 1,5 fois l’écart interquartile. Les points au-delà ne sont pas automatiquement des erreurs.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, comparez pH selon lot par boîtes à moustaches horizontales, avec un remplissage par lot, sans légende.\n\n\n\n\n\n\n\n\n\nUtilisez fill=lot, geom_boxplot() et coord_flip().\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(lot = rep(c(\"A\", \"B\"), each = 12),\n                pH = c(7.1,7.2,7.3,7.0,7.4,7.2,7.3,7.1,7.2,7.5,7.0,7.3,\n                       6.4,6.6,6.8,6.5,6.9,6.7,6.6,6.8,7.0,6.4,6.7,6.5))\nggplot(d,aes(lot,pH,fill=lot))+geom_boxplot()+coord_flip()+theme_minimal()+theme(legend.position=\"none\")\n\nValidation visuelle : comparez votre figure à la solution et expliquez les différences.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#facettes-avec-facet_wrap-et-facet_grid",
+    "href": "04_seance.html#facettes-avec-facet_wrap-et-facet_grid",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "6. Facettes avec facet_wrap() et facet_grid()",
+    "text": "6. Facettes avec facet_wrap() et facet_grid()\nLes facettes séparent les données en panneaux tout en conservant les mêmes axes par défaut. facet_wrap(~ lot) sépare selon une variable ; facet_grid(lot ~ condition) organise deux variables en lignes et colonnes. Des axes communs facilitent les comparaisons.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, créez un objet graphique p représentant absorbance en fonction de temps avec points et courbes. Affichez un panneau par lot, disposé verticalement, avec facet_wrap() puis facet_grid().\n\n\n\n\n\n\n\n\n\nUtilisez facet_wrap(~lot,ncol=1) ou facet_grid(lot~.).\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(temps = rep(seq(0,10,by=2), 2),\n                absorbance = c(.90,.66,.48,.32,.23,.16,.88,.79,.69,.59,.51,.43),\n                lot = rep(c(\"A\", \"B\"), each = 6))\np &lt;- ggplot(d,aes(temps,absorbance))+geom_line()+geom_point()+labs(x=\"Temps (min)\",y=\"Absorbance\")+theme_minimal()\nprint(p+facet_wrap(~lot,ncol=1))\nprint(p+facet_grid(lot~.))\n\nValidation visuelle : comparez votre figure à la solution et expliquez les différences.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#bilan-choisir-une-figure",
+    "href": "04_seance.html#bilan-choisir-une-figure",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "7. Bilan : choisir une figure",
+    "text": "7. Bilan : choisir une figure\nLe choix dépend de la question scientifique : relation, évolution, distribution ou comparaison.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez absorbance en fonction de concentration avec une couleur et une forme associées à lot, et le thème theme_bw().\n\n\n\n\n\n\n\n\n\nAssociez color et shape à lot.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(concentration = rep(c(1, 3, 5, 7, 9), 2),\n                absorbance = c(.09,.19,.30,.38,.49,.12,.22,.34,.43,.55),\n                lot = rep(c(\"A\", \"B\"), each = 5))\nggplot(d,aes(concentration,absorbance,color=lot,shape=lot))+geom_point(size=3)+labs(x=\"Concentration (mg/L)\",y=\"Absorbance\")+theme_bw()\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nPour comparer des distributions par groupe, choisir :\n Une boîte à moustaches\n Une courbe temporelle\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#régression-linéaire-et-droite-détalonnage",
+    "href": "04_seance.html#régression-linéaire-et-droite-détalonnage",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "Régression linéaire et droite d’étalonnage",
+    "text": "Régression linéaire et droite d’étalonnage\nOn cherche à modéliser l’absorbance A en fonction de la concentration C : \\(A = aC + b\\). La fonction lm(y ~ x, data = ...) estime les coefficients par moindres carrés. coef(m)[1] donne l’ordonnée à l’origine b, coef(m)[2] la pente a ; summary(m)$r.squared donne R². Un R² élevé ne prouve pas à lui seul que le modèle est approprié.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\ngeom_smooth(method = \"lm\") ajuste une droite. se = TRUE affiche un intervalle de confiance de la moyenne prédite (pas un intervalle de prédiction individuel). Avec color = lot dans aes(), une droite est ajustée par lot ; pour une droite commune, utilisez aes(group = 1) dans la couche de régression et une couleur fixe.\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, créez le modèle linéaire m reliant absorbance à concentration. Tracez les points et la droite rouge sans intervalle de confiance. Terminez par summary(m)$r.squared pour valider R².\n\n\n\n\n\n\n\n\n\nAjustez lm() et utilisez geom_smooth(method=“lm”,se=FALSE).\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(concentration = c(0, 2, 4, 6, 8, 10),\n                absorbance = c(.04,.15,.24,.37,.45,.59))\nm &lt;- lm(absorbance~concentration,data=d)\nprint(ggplot(d,aes(concentration,absorbance))+geom_point()+geom_smooth(method=\"lm\",formula=y~x,se=FALSE,color=\"red\")+labs(x=\"Concentration (mg/L)\",y=\"Absorbance\")+theme_minimal())\nsummary(m)$r.squared\n\n\n\n\n\n\nVérifiez vos connaissances\nQue représente R² ?\n La fraction de variance expliquée par le modèle\n La preuve que le modèle est exact\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#afficher-léquation-et-r²-sur-le-graphique",
+    "href": "04_seance.html#afficher-léquation-et-r²-sur-le-graphique",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "Afficher l’équation et R² sur le graphique",
+    "text": "Afficher l’équation et R² sur le graphique\ngeom_smooth() trace la droite mais n’affiche pas automatiquement ses coefficients. On peut utiliser lm() pour les calculer, sprintf() pour construire un texte et annotate() pour l’ajouter à la figure. Cette méthode ne nécessite aucun package supplémentaire.\n\n\n\n\n\n\n\n\n\n%.4f affiche quatre décimales ; %+.4f affiche également le signe du nombre.\n\\n insère un retour à la ligne.\nx = -Inf, y = Inf placent le texte en haut à gauche ; hjust et vjust ajustent sa position.\nL’arrondi ne modifie que l’affichage, pas les coefficients utilisés pour les calculs.\n\n\nÀ vous de jouer\nFiltrez le tableau d fourni pour ne conserver que le lot A (gardez le nom d). Créez le modèle linéaire m reliant absorbance à concentration, puis une chaîne texte contenant l’équation et R² à trois décimales. Affichez les points, la droite et cette annotation en haut à droite.\n\n\n\n\n\n\n\n\n\nUtilisez subset(), sprintf() et annotate() avec x=Inf et hjust=1.1.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nd &lt;- data.frame(concentration = rep(c(1, 3, 5, 7, 9), 2),\n                absorbance = c(.09,.19,.30,.38,.49,.12,.22,.34,.43,.55),\n                lot = rep(c(\"A\", \"B\"), each = 5))\nd &lt;- subset(d,lot==\"A\")\nm &lt;- lm(absorbance~concentration,data=d)\ntexte &lt;- sprintf(\"A = %.3f C %+.3f\\nR² = %.3f\",coef(m)[2],coef(m)[1],summary(m)$r.squared)\nggplot(d,aes(concentration,absorbance))+geom_point()+geom_smooth(method=\"lm\",formula=y~x,se=FALSE)+annotate(\"text\",x=Inf,y=Inf,label=texte,hjust=1.1,vjust=1.2)+theme_minimal()\n\nValidation visuelle, hors barème. Pour plusieurs lots, il faut ajuster un modèle distinct par lot et construire une étiquette par panneau ; une annotation unique ne calcule pas automatiquement les coefficients par groupe.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#synthèse",
+    "href": "04_seance.html#synthèse",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "Synthèse",
+    "text": "Synthèse\nSans regarder les solutions, refaites le dernier exercice. Expliquez à votre voisin les fonctions utilisées, le sens des résultats et une erreur que vous avez corrigée. Notez deux notions à retenir et une question à poser.",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "04_seance.html#aide-mémoire-ggplot2",
+    "href": "04_seance.html#aide-mémoire-ggplot2",
+    "title": "Séance 4 — Visualiser avec ggplot2",
+    "section": "Aide-mémoire ggplot2",
+    "text": "Aide-mémoire ggplot2\n\n\n\n\n\n\n\n\nObjectif\nCouche\nVariables\n\n\n\n\nRelation\ngeom_point()\nx et y numériques\n\n\nGroupes par couleur\naes(color = lot)\nvariable qualitative ou numérique\n\n\nGroupes par forme\naes(shape = lot)\nvariable qualitative\n\n\nÉvolution\ngeom_line()\nx ordonné, y numérique\n\n\nDistribution\ngeom_histogram()\nx numérique\n\n\nComparaison\ngeom_boxplot()\nx groupe, y numérique\n\n\nRégression\ngeom_smooth(method = \"lm\")\nx et y numériques\n\n\nPanneaux\nfacet_wrap(~ lot)\nvariable de regroupement",
+    "crumbs": [
+      "Accueil",
+      "Séance 4 — Visualiser avec ggplot2"
+    ]
+  },
+  {
+    "objectID": "02_seance.html",
+    "href": "02_seance.html",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#bienvenue",
+    "href": "02_seance.html#bienvenue",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#types-et-comparaisons",
+    "href": "02_seance.html#types-et-comparaisons",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "1. Types et comparaisons",
+    "text": "1. Types et comparaisons\nLes valeurs peuvent être numériques, textuelles ou logiques. == teste une égalité ; &gt; et &lt; comparent.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez le vecteur ph contenant 5.8, 7.0, 8.2 et 6.5. Affichez un vecteur logique indiquant quelles valeurs sont strictement inférieures à 7.\n\n\n\n\n\n\n\n\n\nUtiliser &lt; 7.\n\n\nph &lt;- c(5.8,7.0,8.2,6.5)\nph &lt; 7\n\n\n\n\n\n\nVérifiez vos connaissances\nQuel opérateur teste une égalité ?\n &lt;-\n ==\n =\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#tableaux-de-données",
+    "href": "02_seance.html#tableaux-de-données",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "2. Tableaux de données",
+    "text": "2. Tableaux de données\nUn data.frame est un tableau de données, comparable à une feuille Excel. En sciences expérimentales, chaque ligne correspond généralement à un échantillon, une mesure ou une observation ; chaque colonne représente une variable ou une information sur cette observation.\n\n\n\nechantillon\npH\nmasse\nvalide\n\n\n\n\nA01\n6.8\n2.45\nTRUE\n\n\nA02\n7.2\n2.51\nTRUE\n\n\nA03\n5.9\n2.48\nFALSE\n\n\nA04\n7.1\n2.53\nTRUE\n\n\n\nCe tableau contient quatre observations et quatre variables. La première colonne est textuelle (character), les deux suivantes sont numériques (numeric) et la dernière est logique (logical). Chaque colonne est généralement un vecteur d’un même type, mais les colonnes peuvent avoir des types différents. Elles ont toutes le même nombre de lignes. Les valeurs manquantes peuvent être représentées par NA.\n\nConstruire et explorer un tableau\n\n\n\n\n\n\n\n\ndata.frame() assemble les vecteurs en colonnes nommées. Les éléments de même position forment une ligne. Utilisez de préférence des vecteurs de même longueur lors de la construction.\n\n\n\nFonction\nRôle\n\n\n\n\nstr(mesures)\nStructure et classes des colonnes\n\n\ndim(mesures)\nDimensions : lignes, puis colonnes\n\n\nnrow(mesures)\nNombre de lignes\n\n\nncol(mesures)\nNombre de colonnes\n\n\nnames(mesures)\nNoms des colonnes\n\n\nhead(mesures)\nPremières lignes\n\n\nsummary(mesures)\nRésumé des colonnes\n\n\n\n\n\nExtraire des lignes, colonnes ou valeurs\nLa syntaxe générale est tableau[ligne, colonne]. Les indices commencent à 1. Laisser une position vide signifie sélectionner toutes les lignes ou toutes les colonnes correspondantes. $ permet d’extraire une colonne par son nom sous forme de vecteur.\n\n\n\n\n\n\n\n\nmesures$pH est un vecteur numérique ; mesures[\"pH\"] est encore un data.frame à une colonne. Cette distinction est importante pour choisir la bonne fonction R.\n\n\nÀ vous de jouer — exploration (entraînement)\nÀ partir du tableau analyse fourni, affichez sa structure, son nombre de lignes, la masse du deuxième échantillon puis la moyenne de la colonne masse.\n\n\n\n\n\n\n\n\n\nUtilisez str(), nrow(), les crochets et mean().\n\n\nstr(analyse)\nnrow(analyse)\nanalyse[2, \"masse\"]\nmean(analyse$masse)\n\n\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez un data.frame nommé d, avec une colonne id contenant A, B et C et une colonne masse contenant 2.1, 3.4 et 2.8. Affichez la colonne masse en dernière instruction.\n\n\n\n\n\n\n\n\n\nUtiliser data.frame() et $.\n\n\nd &lt;- data.frame(id=c(\"A\",\"B\",\"C\"),masse=c(2.1,3.4,2.8))\nd$masse\n\n\n\n\n\n\nVérifiez vos connaissances\nUne ligne correspond généralement à :\n Une observation\n Une fonction\n Une unité\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#importer-un-csv",
+    "href": "02_seance.html#importer-un-csv",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "3. Importer un CSV",
+    "text": "3. Importer un CSV\nLe fichier fourni utilise la virgule comme séparateur et le point décimal. read.csv() le lit. read.csv2() correspond souvent aux CSV français.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nLe code fourni importe le fichier dans d. Affichez les noms des colonnes de d, puis son nombre de lignes en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser names() et nrow().\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nnames(d)\nnrow(d)\n\n\n\n\n\n\nVérifiez vos connaissances\nQuelle fonction montre la structure ?\n plot()\n sum()\n str()\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#sélection-et-filtrage",
+    "href": "02_seance.html#sélection-et-filtrage",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "4. Sélection et filtrage",
+    "text": "4. Sélection et filtrage\nDans d[lignes, colonnes], une condition logique sélectionne les lignes. Une position vide signifie toutes les lignes ou colonnes.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, affichez les lignes du lot B (lot) dont la concentration est strictement supérieure à 4.\n\n\n\n\n\n\n\n\n\nCombiner deux conditions avec &.\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nd[d$lot == \"B\" & d$concentration &gt; 4, ]\n\n\n\n\n\n\nVérifiez vos connaissances\n& représente :\n OU\n ET\n NON\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#transformer-et-trier",
+    "href": "02_seance.html#transformer-et-trier",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "5. Transformer et trier",
+    "text": "5. Transformer et trier\nCréer une colonne avec $ et &lt;-. order() donne les indices d’un tri.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nDans le tableau d fourni, créez une colonne absorbance_corrigee en retirant 0.012 à chaque valeur de absorbance. Affichez le tableau entier trié par ordre décroissant de absorbance_corrigee.\n\n\n\n\n\n\n\n\n\nUtiliser order(…, decreasing=TRUE).\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nd$absorbance_corrigee &lt;- d$absorbance-0.012\nd[order(d$absorbance_corrigee,decreasing=TRUE), ]\n\n\n\n\n\n\nVérifiez vos connaissances\nCréer une colonne modifie-t-il automatiquement le CSV ?\n Non\n Oui\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#bilan-regroupements",
+    "href": "02_seance.html#bilan-regroupements",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "6. Bilan : regroupements",
+    "text": "6. Bilan : regroupements\naggregate() calcule un résumé par groupe avec la notation variable ~ groupe.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, affichez la moyenne de absorbance pour chaque couple concentration/lot, puis la moyenne par concentration seule en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser concentration + lot à droite de ~.\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\naggregate(absorbance ~ concentration + lot,d,mean)\naggregate(absorbance ~ concentration,d,mean)\n\n\n\n\n\n\nVérifiez vos connaissances\nUne moyenne par concentration mélange ici :\n Les deux lots\n Toutes les concentrations\n Les noms des échantillons\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "02_seance.html#synthèse",
+    "href": "02_seance.html#synthèse",
+    "title": "Séance 2 — Manipuler des données",
+    "section": "Synthèse",
+    "text": "Synthèse\nSans regarder les solutions, refaites le dernier exercice. Expliquez à votre voisin les fonctions utilisées, le sens des résultats et une erreur que vous avez corrigée. Notez deux notions à retenir et une question à poser.",
+    "crumbs": [
+      "Accueil",
+      "Séance 2 — Manipuler des données"
+    ]
+  },
+  {
+    "objectID": "bilan.html",
+    "href": "bilan.html",
+    "title": "Mon bilan",
+    "section": "",
+    "text": "Votre progression est conservée dans ce navigateur. La note formative tient compte des QCM et des exercices R autocorrigés. Les graphiques sans correction automatique ne sont pas notés. Une réussite est conservée même après une nouvelle tentative. Les aides ne sont pas pénalisées.\n\nCode étudiant fourni par l’enseignant (sans nom)\n\n\nTélécharger mon bilan CSV\nTransmettre à l’enseignant\n\n\nLa transmission ouvre un nouvel onglet avec un accusé de réception. Ne transmettez pas de données nominatives. Le résultat est indicatif et calculé localement."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Apprendre R par la pratique",
+    "section": "",
+    "text": "NoteBienvenue\n\n\n\nAucune installation de R n’est nécessaire pour suivre ce cours en ligne. Attendez le chargement du moteur R dans votre navigateur puis cliquez sur Run Code. Vous pouvez modifier chaque exemple, recommencer et consulter les indices.",
+    "crumbs": [
+      "Accueil",
+      "Apprendre R par la pratique"
+    ]
+  },
+  {
+    "objectID": "index.html#votre-parcours",
+    "href": "index.html#votre-parcours",
+    "title": "Apprendre R par la pratique",
+    "section": "Votre parcours",
+    "text": "Votre parcours\n\n\n\nSéance\nObjectif\n\n\n\n\n01 — Découvrir R\nCalculs, variables, vecteurs\n\n\n02 — Manipuler les données\nImporter, filtrer, trier\n\n\n03 — Graphiques avec R de base\nplot, courbes, distributions et régression\n\n\n04 — ggplot2\nCouches, facettes et régression\n\n\n05 — Statistiques\nDispersion et étalonnage\n\n\n06 — Mini-projet\nProgrammation et dosage",
+    "crumbs": [
+      "Accueil",
+      "Apprendre R par la pratique"
+    ]
+  },
+  {
+    "objectID": "index.html#essayez-r-maintenant",
+    "href": "index.html#essayez-r-maintenant",
+    "title": "Apprendre R par la pratique",
+    "section": "Essayez R maintenant",
+    "text": "Essayez R maintenant\nChangez la masse puis exécutez le code. Le résultat représente une concentration en g/L.",
+    "crumbs": [
+      "Accueil",
+      "Apprendre R par la pratique"
+    ]
+  },
+  {
+    "objectID": "index.html#organisation",
+    "href": "index.html#organisation",
+    "title": "Apprendre R par la pratique",
+    "section": "Organisation",
+    "text": "Organisation\nLes exemples et exercices sont indépendants : recréez les variables utiles. Certains exercices vérifient automatiquement le dernier résultat ; les graphiques sont à comparer visuellement aux solutions. Les QCM donnent un retour immédiat.\nTélécharger les données de dosage\nConsultez Mon bilan pour suivre vos résultats et les transmettre à l’enseignant. Les données sont simulées.",
+    "crumbs": [
+      "Accueil",
+      "Apprendre R par la pratique"
+    ]
+  },
+  {
+    "objectID": "01_seance.html",
+    "href": "01_seance.html",
+    "title": "Séance 1 — Découvrir R",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.\nConvention des exercices : utilisez exactement les noms indiqués dans les consignes (R distingue majuscules et minuscules : c_mg et C_mg sont différents). Lorsque la vérification automatique porte sur un résultat, affichez-le en dernière instruction. Les objets déjà présents dans l’encart sont fournis.",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#bienvenue",
+    "href": "01_seance.html#bienvenue",
+    "title": "Séance 1 — Découvrir R",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.\nConvention des exercices : utilisez exactement les noms indiqués dans les consignes (R distingue majuscules et minuscules : c_mg et C_mg sont différents). Lorsque la vérification automatique porte sur un résultat, affichez-le en dernière instruction. Les objets déjà présents dans l’encart sont fournis.",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#calculatrice-et-priorités",
+    "href": "01_seance.html#calculatrice-et-priorités",
+    "title": "Séance 1 — Découvrir R",
+    "section": "1. Calculatrice et priorités",
+    "text": "1. Calculatrice et priorités\nR effectue les opérations usuelles. Les parenthèses imposent un ordre ; ^ signifie puissance. Le séparateur décimal est le point.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCalculez et affichez la masse en g correspondant à 0.025 mol de NaCl (58.44 g/mol). Aucune variable intermédiaire imposée.\n\n\n\n\n\n\n\n\n\nUtiliser une multiplication.\n\n\n0.025 * 58.44\n\n\n\n\n\n\nVérifiez vos connaissances\nQuel opérateur permet de calculer une puissance ?\n /\n ^\n *\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#variables-et-unités",
+    "href": "01_seance.html#variables-et-unités",
+    "title": "Séance 1 — Découvrir R",
+    "section": "2. Variables et unités",
+    "text": "2. Variables et unités\nL’affectation &lt;- enregistre une valeur sous un nom. R distingue majuscules et minuscules. Les unités ne sont pas mémorisées automatiquement.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez masse_g (4 g) et volume_L (0.5 L). Calculez la concentration dans concentration_g_L, puis affichez concentration_g_L.\n\n\n\n\n\n\n\n\n\nDiviser la masse par le volume.\n\n\nmasse_g &lt;- 4\nvolume_L &lt;- 0.5\nconcentration_g_L &lt;- masse_g / volume_L\nconcentration_g_L\n\n\n\n\n\n\nVérifiez vos connaissances\nQue fait &lt;- ?\n Compare deux valeurs\n Affecte une valeur\n Affiche un graphique\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#classes-et-types-de-données",
+    "href": "01_seance.html#classes-et-types-de-données",
+    "title": "Séance 1 — Découvrir R",
+    "section": "3. Classes et types de données",
+    "text": "3. Classes et types de données\nUne variable est un nom associé à un objet. La classe de cet objet indique notamment comment R le manipule. Les nombres, les textes et les valeurs logiques ne se comportent pas de la même manière.\n\n\n\n\n\n\n\n\nClasse\nSignification\nExemple\n\n\n\n\nnumeric\nNombre (par défaut stocké en double précision)\n12.5\n\n\ninteger\nNombre entier explicitement déclaré\n5L\n\n\ncharacter\nTexte entre guillemets\n\"Cuivre\"\n\n\nlogical\nVrai ou faux\nTRUE, FALSE\n\n\nfactor\nCatégorie parmi des modalités définies\nfactor(c(\"A\", \"B\", \"A\"))\n\n\n\n\nReconnaître les classes\n\n\n\n\n\n\n\n\nclass() indique la classe ; typeof() indique le type de stockage interne. Un facteur, par exemple, est stocké sous forme de codes entiers associés à des modalités. NA représente une valeur manquante, et non zéro.\n\n\nNombre ou texte ?\n\n\n\n\n\n\n\n\ny * 2 provoquerait une erreur : les guillemets font de y un texte. La conversion d’un texte non numérique avec as.numeric() produit généralement NA et un avertissement. as.integer() tronque les décimales, sans arrondir.\n\n\n\n\n\n\n\n\nLes facteurs servent à représenter des groupes expérimentaux et à contrôler l’ordre des catégories dans les graphiques. Pour convertir un facteur représentant des nombres, passer d’abord par as.character() afin de ne pas récupérer ses codes internes.\n\n\nÀ vous de jouer — classes et conversions (entraînement)\nIdentifiez avec class() les classes des quatre objets fournis (metal, concentration, repetitions, conforme). Convertissez concentration en nombre et affichez son double.\n\n\n\n\n\n\n\n\n\nUtilisez class() et as.numeric().\n\n\nclass(metal)\nclass(concentration)\nclass(repetitions)\nclass(conforme)\nas.numeric(concentration) * 2\nLe résultat attendu est 16.4.",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#vecteurs",
+    "href": "01_seance.html#vecteurs",
+    "title": "Séance 1 — Découvrir R",
+    "section": "4. Vecteurs",
+    "text": "4. Vecteurs\nUn vecteur atomique regroupe plusieurs valeurs dans un même objet. Toutes ses valeurs ont un même type de stockage. La fonction c() permet de les combiner ; les indices commencent à 1.\n\n4.1. La classe des vecteurs\nComme pour une valeur isolée, la classe d’un vecteur détermine les opérations que l’on peut effectuer sur ses éléments. En R, une valeur numérique isolée est elle-même un vecteur de longueur 1.\n\n\n\n\n\n\n\n\nClasse\nExemple de vecteur\nUtilisation\n\n\n\n\nnumeric\nc(2.5, 3.1, 4.2)\nMesures expérimentales, calculs\n\n\ninteger\nc(2L, 3L, 4L)\nComptages entiers\n\n\ncharacter\nc(\"Cu\", \"Zn\", \"Fe\")\nNoms, identifiants, textes\n\n\nlogical\nc(TRUE, FALSE, TRUE)\nConditions, sélection de données\n\n\nfactor\nfactor(c(\"A\", \"B\", \"A\"))\nCatégories, groupes expérimentaux\n\n\n\nExécutez cet exemple pour observer les classes des différents vecteurs.\n\n\n\n\n\n\n\n\n\n\n4.2. Pourquoi la classe est importante pour les calculs\nPour effectuer des calculs sur des mesures (addition, multiplication, moyenne, écart-type), il faut normalement disposer de vecteurs numériques (numeric ou integer). Un vecteur de textes ne permet pas directement ces opérations, même lorsque les textes ressemblent à des nombres.\n\n\n\n\n\n\n\n\nLes guillemets changent la nature des données : 2 est un nombre, tandis que \"2\" est du texte. Les vecteurs logiques constituent un cas particulier : R peut convertir TRUE en 1 et FALSE en 0 pour certains calculs. Par exemple, mean(c(TRUE, FALSE, TRUE)) donne la proportion de valeurs vraies. Les facteurs, eux, ne doivent pas être utilisés comme des nombres.\n\n\n4.3. Que se passe-t-il si on mélange des classes ?\nR convertit automatiquement les éléments vers un type commun : c’est la coercition. La présence d’une seule chaîne de caractères peut transformer tout un vecteur numérique en texte.\n\n\n\n\n\n\n\n\nCe problème peut aussi apparaître lors de l’importation d’un fichier CSV : une valeur écrite sous forme de texte dans une colonne de mesures peut conduire R à lire toute la colonne comme du texte.\n\n\n4.4. Convertir un vecteur en nombres\nLa fonction as.numeric() permet de convertir les textes représentant des nombres. Si une valeur ne peut pas être convertie, R renvoie NA (valeur manquante) et un avertissement. Il faut vérifier les valeurs manquantes avant de calculer.\n\n\n\n\n\n\n\n\nna.rm = TRUE exclut les valeurs manquantes du calcul ; cela ne les remplace pas par zéro. Dans un contexte expérimental, il faut justifier cette exclusion.\n\n\nÀ vous de jouer — Classes des vecteurs (entraînement)\nVérifiez la classe du vecteur concentrations fourni. Remplacez son contenu par les valeurs numériques converties (conservez le nom concentrations). Vérifiez sa nouvelle classe, affichez sa moyenne puis les valeurs multipliées par 2.\n\n\n\n\n\n\n\n\n\nUtilisez class(), as.numeric(), mean() et la multiplication par 2. Vérifiez la classe avant et après conversion.\n\n\nclass(concentrations)\nconcentrations &lt;- as.numeric(concentrations)\nclass(concentrations)\nmean(concentrations)\nconcentrations * 2\nLa moyenne vaut 3 et les concentrations corrigées sont 3, 5, 7 et 9.\n\nÀ retenir : avant un calcul sur un vecteur de mesures, vérifiez sa classe avec class() ou son caractère numérique avec is.numeric().\n\n\n4.5. Accéder aux éléments d’un vecteur\nLes indices permettent de sélectionner des valeurs dans un vecteur ; ils commencent à 1 en R.\n\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez le vecteur temp contenant les cinq températures 20, 21, 19, 22 et 20. Affichez sa troisième valeur, puis sa longueur en dernière instruction.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser c(), [3] et length().\n\n\ntemp &lt;- c(20,21,19,22,20)\ntemp[3]\nlength(temp)\n\n\n\n\n\n\nVérifiez vos connaissances\nQuel est le premier indice ?\n -1\n 1\n 0\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#calcul-vectoriel",
+    "href": "01_seance.html#calcul-vectoriel",
+    "title": "Séance 1 — Découvrir R",
+    "section": "5. Calcul vectoriel",
+    "text": "5. Calcul vectoriel\nUne opération entre un vecteur et un nombre agit sur chaque élément. seq() crée une suite et rep() répète une valeur.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez un vecteur nommé c_mg contenant les concentrations en mg/L de 0 à 20 par pas de 5. Affichez les concentrations converties en g/L en dernière instruction.\n\n\n\n\n\n\n\n\n\nDiviser le vecteur par 1000.\n\n\nc_mg &lt;- seq(0,20,by=5)\nc_mg / 1000\n\n\n\n\n\n\nVérifiez vos connaissances\nQue renvoie length(seq(0,10,by=2)) ?\n 5\n 6\n 10\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#fonctions-et-valeurs-manquantes",
+    "href": "01_seance.html#fonctions-et-valeurs-manquantes",
+    "title": "Séance 1 — Découvrir R",
+    "section": "6. Fonctions et valeurs manquantes",
+    "text": "6. Fonctions et valeurs manquantes\nUne fonction reçoit des arguments. NA désigne une valeur manquante, différente de zéro. na.rm=TRUE exclut les NA du calcul.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez le vecteur x contenant 7.1, 7.2, NA et 6.9. Affichez successivement la moyenne, le minimum et le maximum en ignorant la valeur manquante. Terminez par le maximum.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nAjouter na.rm=TRUE à chaque fonction.\n\n\nx &lt;- c(7.1,7.2,NA,6.9)\nmean(x,na.rm=TRUE)\nmin(x,na.rm=TRUE)\nmax(x,na.rm=TRUE)\n\n\n\n\n\n\nVérifiez vos connaissances\nNA signifie :\n Valeur négative\n Valeur manquante\n Zéro\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#bilan-dilution",
+    "href": "01_seance.html#bilan-dilution",
+    "title": "Séance 1 — Découvrir R",
+    "section": "7. Bilan : dilution",
+    "text": "7. Bilan : dilution\nPour une dilution idéale, C1 V1 = C2 V2. Les volumes doivent être dans la même unité.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez C1 (200 mg/L) et le vecteur V1 (1, 2, 5 et 10 mL). Calculez dans C2 les concentrations après dilution à un volume final de 100 mL, puis affichez C2.\n\n\n\n\n\n\n\n\n\nUtiliser un vecteur de volumes.\n\n\nC1 &lt;- 200\nV1 &lt;- c(1,2,5,10)\nC2 &lt;- C1*V1/100\nC2\n\n\n\n\n\n\nVérifiez vos connaissances\nDoubler le volume final à prélèvement constant :\n Double C2\n Divise C2 par deux\n Ne change rien\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "01_seance.html#synthèse",
+    "href": "01_seance.html#synthèse",
+    "title": "Séance 1 — Découvrir R",
+    "section": "Synthèse",
+    "text": "Synthèse\nSans regarder les solutions, refaites le dernier exercice. Expliquez à votre voisin les fonctions utilisées, le sens des résultats et une erreur que vous avez corrigée. Notez deux notions à retenir et une question à poser.",
+    "crumbs": [
+      "Accueil",
+      "Séance 1 — Découvrir R"
+    ]
+  },
+  {
+    "objectID": "03_seance.html",
+    "href": "03_seance.html",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#bienvenue",
+    "href": "03_seance.html#bienvenue",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#nuage-de-points",
+    "href": "03_seance.html#nuage-de-points",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "1. Nuage de points",
+    "text": "1. Nuage de points\nUn nuage de points montre la relation entre deux variables quantitatives. Identifier les axes et leurs unités.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez absorbance (y) en fonction de concentration (x), avec des points bleus pleins, les unités et le titre « Étalonnage ».\n\n\n\n\n\n\n\n\n\nUtilisez plot(), pch=19, col et main.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nd &lt;- data.frame(concentration = rep(c(1, 3, 5, 7, 9), 2),\n                absorbance = c(.09,.19,.30,.38,.49,.12,.22,.34,.43,.55),\n                lot = rep(c(\"A\", \"B\"), each = 5))\nplot(d$concentration, d$absorbance, pch=19, col=\"blue\", main=\"Étalonnage\", xlab=\"Concentration (mg/L)\", ylab=\"Absorbance\")\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nQuelle variable placer en abscisse pour un étalonnage ?\n Absorbance mesurée\n Concentration connue\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#courbes",
+    "href": "03_seance.html#courbes",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "2. Courbes",
+    "text": "2. Courbes\nUne courbe relie des observations ordonnées. Ne pas relier arbitrairement des échantillons indépendants.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez temperature (y) en fonction de temps (x), avec des points reliés.\n\n\n\n\n\n\n\n\n\nUtilisez type=“b”.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nd &lt;- data.frame(temps = c(0,2,4,6,8), temperature = c(20,25,32,36,38))\nplot(d$temps, d$temperature, type=\"b\", xlab=\"Temps (min)\", ylab=\"Température (°C)\")\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nRelier des points est pertinent surtout si :\n Les observations ont un ordre physique\n Les couleurs sont identiques\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#histogrammes",
+    "href": "03_seance.html#histogrammes",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "3. Histogrammes",
+    "text": "3. Histogrammes\nUn histogramme décrit la distribution d’une variable quantitative. Les classes regroupent les valeurs.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, tracez un histogramme de la colonne pH, avec un titre et un axe nommé.\n\n\n\n\n\n\n\n\n\nUtilisez hist() sur la colonne pH.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nd &lt;- data.frame(lot = rep(c(\"A\", \"B\"), each = 12),\n                pH = c(7.1,7.2,7.3,7.0,7.4,7.2,7.3,7.1,7.2,7.5,7.0,7.3,\n                       6.4,6.6,6.8,6.5,6.9,6.7,6.6,6.8,7.0,6.4,6.7,6.5))\nhist(d$pH, xlab=\"pH\", main=\"Distribution du pH\")\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nL’histogramme montre :\n Une relation entre deux variables\n Une distribution\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#boîtes-à-moustaches",
+    "href": "03_seance.html#boîtes-à-moustaches",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "4. Boîtes à moustaches",
+    "text": "4. Boîtes à moustaches\nLa boîte représente les quartiles et la médiane. Les points isolés sont des observations potentiellement atypiques, pas forcément erronées.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, comparez la colonne masse selon la colonne lot avec une boîte à moustaches.\n\n\n\n\n\n\n\n\n\nUtilisez la formule masse ~ lot.\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nd &lt;- data.frame(lot=rep(c(\"A\",\"B\"),each=5), masse=c(10,11,10,12,9,8,9,8,10,7))\nboxplot(masse ~ lot, data=d, ylab=\"Masse (g)\")\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nLe trait dans la boîte correspond à :\n La moyenne\n La médiane\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#régression-linéaire-et-droite-détalonnage",
+    "href": "03_seance.html#régression-linéaire-et-droite-détalonnage",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "Régression linéaire et droite d’étalonnage",
+    "text": "Régression linéaire et droite d’étalonnage\nOn cherche à modéliser l’absorbance A en fonction de la concentration C : \\(A = aC + b\\). La fonction lm(y ~ x, data = ...) estime les coefficients par moindres carrés. coef(m)[1] donne l’ordonnée à l’origine b, coef(m)[2] la pente a ; summary(m)$r.squared donne R². Un R² élevé ne prouve pas à lui seul que le modèle est approprié.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\nabline(m) ajoute la droite du modèle au graphique existant. col règle la couleur et lwd son épaisseur. Contrairement à lines(), elle ne relie pas simplement les points.\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, créez le modèle linéaire m reliant absorbance à concentration. Tracez les points et la droite de régression rouge. Terminez par unname(coef(m)[2]) pour valider la pente.\n\n\n\n\n\n\n\n\n\nUtilisez lm(), plot(), abline() puis coef().\n\nGraphique attendu\n\n\n\n\n\n\n\n\n\n\n\nd &lt;- data.frame(concentration = c(0, 2, 4, 6, 8, 10),\n                absorbance = c(.02,.13,.21,.35,.43,.56))\nm &lt;- lm(absorbance ~ concentration, data=d)\nplot(d$concentration,d$absorbance,pch=19,xlab=\"Concentration (mg/L)\",ylab=\"Absorbance\")\nabline(m,col=\"red\",lwd=2)\nunname(coef(m)[2])\n\n\n\n\n\n\nVérifiez vos connaissances\nQue représente la pente ?\n La variation estimée de A pour 1 mg/L supplémentaire\n L’absorbance à concentration nulle\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "03_seance.html#synthèse",
+    "href": "03_seance.html#synthèse",
+    "title": "Séance 3 — Visualiser avec R de base",
+    "section": "Synthèse",
+    "text": "Synthèse\nChoisissez entre plot(), lines(), hist(), boxplot() et abline() selon la question scientifique.",
+    "crumbs": [
+      "Accueil",
+      "Séance 3 — Visualiser avec R de base"
+    ]
+  },
+  {
+    "objectID": "05_seance.html",
+    "href": "05_seance.html",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#bienvenue",
+    "href": "05_seance.html#bienvenue",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "",
+    "text": "Exécutez les exemples, modifiez une valeur, puis résolvez les exercices. Chaque exercice est indépendant : recréez les variables nécessaires. Les données sont simulées à des fins pédagogiques.",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#indicateurs-descriptifs",
+    "href": "05_seance.html#indicateurs-descriptifs",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "1. Indicateurs descriptifs",
+    "text": "1. Indicateurs descriptifs\nLa moyenne et la médiane résument la position ; sd() estime l’écart-type expérimental avec n-1 au dénominateur.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez le vecteur x contenant 5.1, 5.0, 5.2, 4.9 et 5.1. Affichez la moyenne, la médiane, l’écart-type et enfin l’étendue (maximum moins minimum).\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser diff(range(x)).\n\n\nx &lt;- c(5.1,5.0,5.2,4.9,5.1)\nmean(x)\nmedian(x)\nsd(x)\ndiff(range(x))\n\n\n\n\n\n\nVérifiez vos connaissances\nQuel indicateur décrit la dispersion ?\n sd()\n mean()\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#répétabilité",
+    "href": "05_seance.html#répétabilité",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "2. Répétabilité",
+    "text": "2. Répétabilité\nLe coefficient de variation (CV) exprime l’écart-type relatif en pourcentage pour une moyenne positive non proche de zéro.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez les vecteurs a (10, 10.1, 9.9) et b (10, 11, 9). Calculez et affichez leurs coefficients de variation en pourcentage, dans cet ordre. Terminez par le CV de b.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nCalculer 100*sd()/mean() pour chaque lot.\n\n\na &lt;- c(10,10.1,9.9)\nb &lt;- c(10,11,9)\n100*sd(a)/mean(a)\n100*sd(b)/mean(b)\n\n\n\n\n\n\nVérifiez vos connaissances\nLe lot le plus répétable a généralement :\n Un CV plus faible\n Un CV plus élevé\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#corrélation",
+    "href": "05_seance.html#corrélation",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "3. Corrélation",
+    "text": "3. Corrélation\nLe coefficient de Pearson décrit une association linéaire. Corrélation ne signifie pas causalité.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nCréez t contenant les temps 0 à 4 et a contenant les absorbances 0.8, 0.6, 0.5, 0.4 et 0.3. Affichez leur coefficient de corrélation.\n\n\n\n\n\n\n\n\n\nUtiliser cor(t,a).\n\n\nt &lt;- 0:4\na &lt;- c(.8,.6,.5,.4,.3)\ncor(t,a)\n\n\n\n\n\n\nVérifiez vos connaissances\nUne corrélation négative indique :\n Une absence de relation\n Une tendance décroissante\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#régression-linéaire",
+    "href": "05_seance.html#régression-linéaire",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "4. Régression linéaire",
+    "text": "4. Régression linéaire\nlm(y ~ x) ajuste y = b + ax par moindres carrés. coef() renvoie l’interception puis la pente.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d fourni, créez un modèle linéaire m reliant absorbance à concentration pour le lot A uniquement. Affichez les deux coefficients de m en dernière instruction.\n\n\n\n\n\n\n\n\n\nFiltrer d avant lm().\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nm &lt;- lm(absorbance~concentration,data=d[d$lot==\"A\",])\ncoef(m)\n\n\n\n\n\n\nVérifiez vos connaissances\nLa pente représente ici :\n La variation d’absorbance par mg/L\n L’absorbance à concentration nulle\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#comprendre-les-résultats-de-summarylm",
+    "href": "05_seance.html#comprendre-les-résultats-de-summarylm",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "4.1 Comprendre les résultats de summary(lm())",
+    "text": "4.1 Comprendre les résultats de summary(lm())\nDans cette partie, on adopte la notation \\(A = b + aC\\), avec \\(a\\) la pente et \\(b\\) l’ordonnée à l’origine. Le modèle estime ces deux paramètres à partir des mesures expérimentales.\n\n\n\n\n\n\n\n\n\nLire le tableau des coefficients\n\n\n\n\n\n\n\nSortie R\nInterprétation\n\n\n\n\n(Intercept)\nOrdonnée à l’origine : absorbance estimée à concentration nulle.\n\n\nconcentration\nPente : variation estimée d’absorbance pour 1 mg/L supplémentaire.\n\n\nEstimate\nValeur estimée du coefficient.\n\n\nStd. Error\nErreur standard du coefficient : mesure de son incertitude d’estimation.\n\n\nt value\nRapport entre le coefficient estimé et son erreur standard.\n\n\nPr(&gt;\\|t\\|)\np-value du test bilatéral de l’hypothèse coefficient nul.\n\n\n\nUne p-value inférieure à 0,05 permet de rejeter l’hypothèse nulle au seuil de 5 %, sous les hypothèses du modèle. Elle ne mesure pas la probabilité que l’hypothèse nulle soit vraie. Les étoiles indiquent des seuils de p-value, pas la qualité du modèle. Une ordonnée à l’origine non significative ne justifie pas automatiquement de forcer la droite à passer par zéro.\n\n\nLire le reste du résumé\n\n\n\n\n\n\n\nSortie R\nInterprétation\n\n\n\n\nCall\nFormule et données utilisées.\n\n\nResiduals\nRésumé des résidus (minimum, quartiles, médiane, maximum).\n\n\nResidual standard error\nÉcart-type résiduel estimé, dans l’unité de la réponse.\n\n\nDegrees of freedom\nDegrés de liberté résiduels : n − 2 pour une droite avec interception.\n\n\nMultiple R-squared\nFraction de la variabilité de la réponse expliquée par le modèle (avec interception).\n\n\nAdjusted R-squared\nR² corrigé en fonction du nombre de paramètres et d’observations.\n\n\nF-statistic et sa p-value\nTest global comparant le modèle à un modèle avec interception seule.\n\n\n\nUn R² proche de 1 ne suffit pas pour prouver la linéarité, l’absence de biais ou la validité de l’étalonnage. Il faut notamment examiner les résidus. Les tests et intervalles classiques supposent notamment des erreurs indépendantes, de variance constante, et une normalité des erreurs pour l’inférence exacte en petit échantillon.\n\n\nExtraire les valeurs utiles et leurs intervalles de confiance\n\n\n\n\n\n\n\n\nUn intervalle de confiance à 95 % qui exclut zéro correspond au rejet du test bilatéral au seuil de 5 %. Il décrit la précision de l’estimation, et non la dispersion des observations individuelles.\n\n\nÀ vous de jouer — Interpréter la régression du lot B\nFiltrez le tableau d fourni pour ne garder que le lot B (conservez le nom d). Créez le modèle linéaire m reliant absorbance à concentration. Affichez la pente, son erreur standard, sa p-value, son intervalle de confiance et R². Expliquez avec vos mots la différence entre R², p-value et erreur standard. Cet exercice est formatif et hors barème.\n\n\n\n\n\n\n\n\n\nFiltrez avec subset() puis utilisez summary(m)$coefficients, confint(m) et summary(m)$r.squared.\n\n\nd &lt;- subset(read.csv(\"data/dosage.csv\"), lot == \"B\")\nm &lt;- lm(absorbance ~ concentration, data = d)\nsummary(m)$coefficients[\"concentration\", ]\nconfint(m)[\"concentration\", ]\nsummary(m)$r.squared\nLa pente représente la sensibilité estimée du dosage ; son erreur standard décrit la précision de cette estimation. La p-value teste si la pente est différente de zéro. R² décrit la part de variabilité expliquée par la droite.",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#résidus-et-qualité",
+    "href": "05_seance.html#résidus-et-qualité",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "5. Résidus et qualité",
+    "text": "5. Résidus et qualité\nLes résidus sont les écarts entre valeurs mesurées et ajustées. Examiner leur distribution ; un R² élevé ne suffit pas à valider un modèle.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d et du modèle m fournis, affichez R² et tracez les résidus en fonction de concentration, avec une ligne horizontale à zéro.\n\n\n\n\n\n\n\n\n\nUtiliser summary(m)$r.squared et residuals(m).\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nm &lt;- lm(absorbance~concentration,data=d)\nsummary(m)$r.squared\nplot(d$concentration,residuals(m))\nabline(h=0,lty=2)\n\nValidation visuelle : comparez vos graphiques et les étapes à la solution.\n\n\nVérifiez vos connaissances\nUn motif courbe dans les résidus suggère :\n Une validation certaine\n Un possible défaut du modèle linéaire\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#bilan-concentration-inconnue",
+    "href": "05_seance.html#bilan-concentration-inconnue",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "6. Bilan : concentration inconnue",
+    "text": "6. Bilan : concentration inconnue\nL’inversion de la droite donne x=(y-b)/a. Vérifier le domaine d’étalonnage ; cette inversion simple ne fournit pas une incertitude.\n\nExemple à manipuler\n\n\n\n\n\n\n\n\n\n\nÀ vous de jouer\nÀ partir du tableau d et du modèle m fournis, calculez dans x les concentrations correspondant aux absorbances 0.160, 0.320 et 0.600. Affichez x, puis un vecteur logique indiquant quelles concentrations dépassent la concentration maximale de l’étalonnage.\nTerminez par le dernier résultat demandé pour la vérification automatique. Les autres étapes sont à comparer à la solution.\n\n\n\n\n\n\n\n\n\nUtiliser un vecteur puis comparer au maximum 10 mg/L.\n\n\nd &lt;- read.csv(\"data/dosage.csv\")\nm &lt;- lm(absorbance~concentration,data=d)\nx &lt;- (c(.160,.320,.600)-coef(m)[1])/coef(m)[2]\nx\nx &gt; max(d$concentration)\n\n\n\n\n\n\nVérifiez vos connaissances\nLa valeur hors domaine doit être :\n Signalée et idéalement remesurée après dilution\n Acceptée sans réserve\nVérifier",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  },
+  {
+    "objectID": "05_seance.html#synthèse",
+    "href": "05_seance.html#synthèse",
+    "title": "Séance 5 — Statistiques et étalonnage",
+    "section": "Synthèse",
+    "text": "Synthèse\nSans regarder les solutions, refaites le dernier exercice. Expliquez à votre voisin les fonctions utilisées, le sens des résultats et une erreur que vous avez corrigée. Notez deux notions à retenir et une question à poser.",
+    "crumbs": [
+      "Accueil",
+      "Séance 5 — Statistiques et étalonnage"
+    ]
+  }
+]

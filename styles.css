@@ -1,0 +1,16 @@
+:root { --accent: #176b80; }
+.navbar { background: #17445b; }
+.navbar .navbar-brand, .navbar .navbar-nav .nav-link { color: white !important; }
+.navbar .dropdown-menu { background: #fff !important; }
+.navbar .dropdown-menu .dropdown-item, .navbar .dropdown-menu .dropdown-item a, .navbar .dropdown-menu a { color: #17445b !important; }
+.navbar .dropdown-menu .dropdown-item:hover, .navbar .dropdown-menu .dropdown-item:focus { background: #e5eff3 !important; color: #17445b !important; }
+main h2 { color: #17445b; border-bottom: 1px solid #d8e4e8; padding-bottom: .35rem; }
+.quiz { border: 1px solid #b9cdd4; border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem; margin: 1rem 0 2rem; }
+.quiz legend { font-size: 1rem; font-weight: 600; float: none; width: auto; padding: 0 .4rem; }
+.quiz-option { display: block; margin: .45rem 0; }
+.quiz button { background: #176b80; color: white; border: 0; border-radius: 5px; padding: .45rem .9rem; margin-top: .5rem; }
+.quiz output { font-weight: 600; margin-left: .5rem; }
+
+.graphique-attendu { border:1px solid #b9cdd4; border-radius:6px; padding:.6rem 1rem; margin:1rem 0; }
+.graphique-attendu summary { color:#176b80; font-weight:600; cursor:pointer; }
+.graphique-attendu img { max-width:100%; height:auto; }
